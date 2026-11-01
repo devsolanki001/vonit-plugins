@@ -97,8 +97,11 @@ class Vonit:
                         max_age: float = 300.0) -> bool:
         """True when a callback is Vonit's: the x-atlus-signature over
         "<x-atlus-timestamp>.<raw body>" with your key's callback secret, and fresh."""
-        if abs(time.time() - float(timestamp)) > max_age:
-            return False
+        try:
+            if abs(time.time() - float(timestamp)) > max_age:
+                return False
+        except (TypeError, ValueError):
+            return False  # not a timestamp: not a call Vonit made
         expected = "sha256=" + hmac.new(secret.encode(), timestamp.encode() + b"." + body,
                                         hashlib.sha256).hexdigest()
         return hmac.compare_digest(expected, signature)
