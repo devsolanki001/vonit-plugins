@@ -1,9 +1,12 @@
 ---
-description: Continue this chat in Codex - opened for you, with the chat and its work
+description: Continue this chat in Codex (or /vonit:continue gemini, opencode, goose, aider) - opened for you, with the chat and its work, even at a usage limit
 allowed-tools: Bash(vonit-connector thread continue:*)
 ---
 
 Continue this chat in Codex through Vonit.
+
+Normally Vonit's prompt hook does this before you are asked, with no model.
+You are reading this only if that hook is not installed.
 
 Run exactly this with Bash, in the current folder, and nothing else:
 
