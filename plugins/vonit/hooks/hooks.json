@@ -1,0 +1,49 @@
+{
+  "description": "Vonit keeps this chat's thread so another agent can continue it. Each hook only leaves a note for the Vonit Connector on this computer and returns at once; it sends nothing itself and never stops Claude Code. Without the Connector, or without chat sync turned on, they do nothing.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "vonit-connector thread hook SessionStart --agent claude_code 2>/dev/null || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "vonit-connector thread hook Stop --agent claude_code 2>/dev/null || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "vonit-connector thread hook PreCompact --agent claude_code 2>/dev/null || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "vonit-connector thread hook SessionEnd --agent claude_code 2>/dev/null || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

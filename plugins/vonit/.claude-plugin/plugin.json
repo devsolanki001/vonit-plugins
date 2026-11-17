@@ -1,7 +1,7 @@
 {
   "name": "vonit",
   "displayName": "Vonit",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Your Vonit agent, V, in Claude Code: it knows what you told it, hands parts to other agents and models, and acts on your email, calendar and documents only with your approval.",
   "author": {
     "name": "Vonit",
