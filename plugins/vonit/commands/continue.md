@@ -9,6 +9,9 @@ Run exactly this with Bash, in the current folder, and nothing else:
 
 `vonit-connector thread continue --from claude_code --to codex`
 
+If the person asked to bring this project's setup too (its MCP servers, skills,
+commands), add `--bring-setup`.
+
 Then tell the person, in one or two lines, what it said. If it opened Codex,
 say that their next message there continues this chat, and that this Claude
 Code session should stop here so only one agent works on the folder. If it
