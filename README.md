@@ -33,8 +33,12 @@ Settings.
 
 ## What this plugin contains
 
-A connection to `https://vonit.si/mcp`, one skill telling Claude Code when to
-use Vonit, and two commands. No keys, no code that runs on your computer.
+A connection to `https://vonit.io/mcp` (the same address the Vonit Connector
+adds, so Claude Code keeps one), one skill telling Claude Code when to use
+Vonit, three commands (`/vonit:continue`, `/vonit:delegate`, `/vonit:jobs`),
+and hooks for continuing a chat in another agent. The hooks call the Vonit
+Connector when it is on this computer; without it they only say once how to
+connect it. No keys.
 
 ## For an agent you built yourself
 

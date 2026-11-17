@@ -2,7 +2,7 @@
   "mcpServers": {
     "vonit": {
       "type": "http",
-      "url": "https://vonit.si/mcp"
+      "url": "https://vonit.io/mcp"
     }
   }
 }

@@ -1,12 +1,12 @@
 {
-  "description": "Vonit keeps this chat's thread so another agent can continue it. The hooks only leave a note for the Vonit Connector on this computer; the one on your prompt acts only on /vonit:continue or 'continue in <agent>', which it runs without any model - so it works even at a usage limit. They send nothing themselves and never stop Claude Code otherwise; without the Connector they do nothing.",
+  "description": "Vonit keeps this chat's thread so another agent can continue it. The hooks only leave a note for the Vonit Connector on this computer; the one on your prompt acts only on /vonit:continue or 'continue in <agent>', which it runs without any model - so it works even at a usage limit. They send nothing themselves and never stop Claude Code otherwise; without the Connector they do nothing, except say once, at the start of a session, how to connect this computer.",
   "hooks": {
     "SessionStart": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "vonit-connector thread hook SessionStart --agent claude_code 2>/dev/null || true",
+            "command": "command -v vonit-connector >/dev/null 2>&1 && { vonit-connector thread hook SessionStart --agent claude_code 2>/dev/null; true; } || { m=\"$HOME/.vonit-plugin/told-connector\"; [ -f \"$m\" ] || { mkdir -p \"$HOME/.vonit-plugin\" && : > \"$m\" && printf '%s' '{\"systemMessage\":\"Vonit: to go on with this chat in another agent, even at a usage limit, connect this computer once. Windows (PowerShell): irm https://vonit.io/connect.ps1 | iex   Mac or Linux: curl -fsSL https://vonit.io/connect.sh | sh\"}'; }; true; }",
             "timeout": 10
           }
         ]
